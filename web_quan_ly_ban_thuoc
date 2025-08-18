@@ -632,7 +632,7 @@
                 <h1>PHÒNG KHÁM PHÓ GIÁO SƯ, TIẾN SỸ, BÁC SĨ VÕ TƯỜNG KHA</h1>
             </div>
             <div class="user-info">
-                <img src="https://cdn.pixabay.com/animation/2022/08/06/11/57/11-57-43-584_512.gif" alt="User Avatar">
+                <img src="https://pixabay.com/static/frontend/3623f49a093c354a.svg" alt="User Avatar">
                 <span>Xin chào, <strong>Admin</strong></span>
                 <a href="#" class="btn" style="margin-left: 15px;" onclick="logout()">Đăng xuất</a>
             </div>
