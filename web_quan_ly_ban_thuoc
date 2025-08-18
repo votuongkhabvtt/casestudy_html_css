@@ -628,11 +628,11 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <i class="https://pixabay.com/static/frontend/3623f49a093c354a.svg" style="font-size: 2rem; margin-right: 10px;"></i>
+                <i class="https://cdn.pixabay.com/animation/2024/03/24/03/52/03-52-29-327_512.gif" style="font-size: 2rem; margin-right: 10px;"></i>
                 <h1>PHÒNG KHÁM PHÓ GIÁO SƯ, TIẾN SỸ, BÁC SĨ VÕ TƯỜNG KHA</h1>
             </div>
             <div class="user-info">
-                <img src="https://pixabay.com/static/frontend/3623f49a093c354a.svg" alt="User Avatar">
+                <img src="https://cdn.pixabay.com/animation/2024/03/24/03/52/03-52-29-327_512.gif" alt="User Avatar">
                 <span>Xin chào, <strong>Admin</strong></span>
                 <a href="#" class="btn" style="margin-left: 15px;" onclick="logout()">Đăng xuất</a>
             </div>
