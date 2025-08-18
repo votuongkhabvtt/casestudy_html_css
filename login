@@ -13,8 +13,8 @@
             --text-color: #333;
             --light-bg: #FFF9E6;
             --border-color: #E6C200;
-          }
-       * {
+             }
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
