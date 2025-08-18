@@ -57,7 +57,7 @@
         .logo img {
             height: 5px;
             margin-right: 1.5px;
-            border-radius: 50%;
+            border-radius: 5%;
         }
         
         .logo h1 {
