@@ -264,7 +264,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="Logo">
-                    <img src="https://drive.google.com/file/d/1ysf2RGrUqjn1y34D0xbWWd9y7U9Ek5Ep/view?usp=sharing" alt="Logo">
+                    <img src="https://cdn.pixabay.com/animation/2023/03/28/12/29/12-29-39-349_512.gif" alt="Logo">
                     <h1>PHÒNG KHÁM CHỮA BỆNH PHÓ GIÁO SƯ, TIẾN SỸ, BÁC SỸ VÕ TƯỜNG KHA</h1>
                 </div>
                 <nav>
