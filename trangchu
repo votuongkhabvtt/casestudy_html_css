@@ -365,7 +365,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="https://via.placeholder.com/50" alt="Logo">
+                    <img src="https://drive.google.com/file/d/1ysf2RGrUqjn1y34D0xbWWd9y7U9Ek5Ep/view?usp=sharing" alt="Mô tả ảnh">
                     <h1>PHÒNG KHÁM BÁC SĨ VÕ TƯỜNG KHA</h1>
                 </div>
                 <nav>
@@ -392,8 +392,8 @@
 
     <section class="hero">
         <div class="container">
-            <h2>Chào mừng đến với Phòng khám của Bác sĩ Võ Tường Kha</h2>
-            <p>Chúng tôi cam kết mang đến cho bạn dịch vụ y tế chất lượng cao với đội ngũ y bác sĩ giàu kinh nghiệm và trang thiết bị hiện đại.</p>
+            <h2>Chào mừng đến với Phòng khám của Phó Giáo sư, Tiến sỹ, Bác sĩ Võ Tường Kha</h2>
+            <p>Chuyên về Y học thể thao và Y học cổ truyền chất lượng cao với đội ngũ y bác sĩ giàu kinh nghiệm, trang thiết bị hiện đại và sản phẩm độc quyền, chất lượng, giá cả hợp lý.</p>
             <a href="#products" class="btn">Xem sản phẩm</a>
         </div>
     </section>
@@ -410,7 +410,7 @@
                     </div>
                     <div class="feature-content">
                         <h3>Đội ngũ y bác sĩ giỏi</h3>
-                        <p>Với hơn 15 năm kinh nghiệm, Bác sĩ Võ Tường Kha và đội ngũ nhân viên y tế luôn tận tâm với bệnh nhân.</p>
+                        <p>Với hơn 30 năm kinh nghiệm, Phó Giáo sư, Tiến sỹ, Bác sĩ Võ Tường Kha và đội ngũ nhân viên y tế luôn tận tâm với bệnh nhân.</p>
                     </div>
                 </div>
                 <div class="feature-card">
@@ -428,7 +428,7 @@
                     </div>
                     <div class="feature-content">
                         <h3>Thuốc chất lượng cao</h3>
-                        <p>Chúng tôi cung cấp các loại thuốc chính hãng, đảm bảo chất lượng và hiệu quả điều trị tốt nhất.</p>
+                        <p>Chúng tôi cung cấp các loại sản phẩm Y học thể thao, Y học cổ truyền chính hãng, đảm bảo chất lượng, hiệu quả điều trị tốt nhất, giả cả hợp lý.</p>
                     </div>
                 </div>
             </div>
@@ -489,7 +489,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>PHÒNG KHÁM CHỮA BỆNH BÁC SỸ VÕ TƯỜNG KHA</h3>
+                    <h3>PHÒNG KHÁM CHỮA BỆNH PHÓ GIÁO SƯ, TIẾN SỸ, BÁC SỸ VÕ TƯỜNG KHA</h3>
                     <p>Chúng tôi cam kết mang đến dịch vụ y tế chất lượng cao, tận tâm và chuyên nghiệp.</p>
                     <p><i class="fas fa-map-marker-alt"></i> 11A, ngõ 102 Khuất Duy Tiến, Thanh Xuân, Hà Nội</p>
                 </div>
@@ -512,7 +512,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 PHÒNG KHÁM CHỮA BỆNH BÁC SỸ VÕ TƯỜNG KHA. Tất cả quyền được bảo lưu.</p>
+                <p>&copy; 2023 PHÒNG KHÁM CHỮA BỆNH PHÓ GIÁO SƯ, TIẾN SỸ, BÁC SỸ VÕ TƯỜNG KHA. Tất cả quyền được bảo lưu.</p>
             </div>
         </div>
     </footer>
