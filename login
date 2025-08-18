@@ -55,8 +55,8 @@
         }
         
         .logo img {
-            height: 50px;
-            margin-right: 15px;
+            height: 5px;
+            margin-right: 1.5px;
             border-radius: 50%;
         }
         
