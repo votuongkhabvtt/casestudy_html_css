@@ -6,16 +6,15 @@
     <title>Đăng nhập - PHÒNG KHÁM CHỮA BỆNH PHÓ GIÁO SƯ, TIẾN SỸ, BÁC SỸ VÕ TƯỜNG KHA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
+       :root {
             --primary-color: #FFD700; /* Lemon yellow */
             --secondary-color: #333; /* Dark contrast for toolbars */
             --accent-color: #FFA500; /* Orange accent */
             --text-color: #333;
             --light-bg: #FFF9E6;
             --border-color: #E6C200;
-        }
-        
-        * {
+          }
+       * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
