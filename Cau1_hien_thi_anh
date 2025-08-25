@@ -4,61 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Câu 1: Hiển thị ảnh</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Nền tổng thể hài hòa với ảnh */
         body {
-            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(135deg, #e0f7fa 0%, #bbdefb 100%);
             min-height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 20px 0;
         }
-
-        /* Khung chứa ảnh */
-        .image-container {
-            background-color: rgba(255, 255, 255, 0.85); /* nền nhẹ để nổi bật ảnh */
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            max-width: 95%;
+        .header {
             text-align: center;
+            margin-bottom: 30px;
+            color: #1565c0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
-
-        /* Ảnh responsive, >1200px trên màn hình lớn */
-        .image-container img {
+        .image-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 1400px;
+            transition: transform 0.3s ease;
+        }
+        .image-container:hover {
+            transform: translateY(-5px);
+        }
+        .main-image {
             width: 100%;
-            max-width: 1200px;
             height: auto;
             border-radius: 10px;
+            display: block;
+            min-width: 1200px;
         }
-
-        /* Tiêu đề */
-        h1 {
-            color: #1a1a1a;
-            margin-bottom: 20px;
+        .image-info {
+            text-align: center;
+            margin-top: 20px;
+            color: #546e7a;
+            font-style: italic;
         }
-
-        /* Responsive nhỏ */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #78909c;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1400px) {
+            .main-image {
+                min-width: unset;
+            }
+        }
         @media (max-width: 768px) {
-            body {
-                padding: 20px;
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            .image-container {
+                padding: 15px;
             }
         }
     </style>
 </head>
 <body>
-
-    <div class="image-container">
-        <h1>Câu 1: Hiển thị ảnh</h1>
-        <img src="https://i.ibb.co/Zzmj72gw/image.jpg" alt="Ảnh Câu 1">
+    <div class="container">
+        <div class="header">
+            <h1>Câu 1: Hiển thị ảnh</h1>
+        </div>
+        
+        <div class="image-container">
+            <img src="https://i.ibb.co/Zzmj72g/w.jpg" alt="Hình ảnh hiển thị" class="main-image">
+            <p class="image-info">Ảnh được hiển thị với kích thước gốc lớn hơn 1200px</p>
+        </div>
+        
+        <div class="footer">
+            <p>Trang web được thiết kế với HTML, CSS và Bootstrap | Đảm bảo responsive trên mọi thiết bị</p>
+        </div>
     </div>
 
-    <!-- Bootstrap JS (tùy chọn, nếu muốn dùng JS components) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
