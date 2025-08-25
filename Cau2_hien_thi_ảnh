@@ -4,270 +4,269 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Câu 2: Hiển thị ảnh</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #495057;
+            min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        body {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            color: #5a4b4b;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px 20px;
+        .header-container {
+            background: linear-gradient(90deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
         
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
+        .main-container {
+            background-color: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-            margin: 20px 0;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 25px;
-            background: linear-gradient(90deg, #ff9a9e 0%, #fad0c4 100%);
-            border-radius: 15px;
-            margin-bottom: 30px;
-            color: #5a4b4b;
-        }
-        
-        h1 {
-            font-size: 2.3rem;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
         }
         
         .image-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .image-wrapper {
-            border: 1px solid #e1c4c4;
-            border-radius: 12px;
-            padding: 15px;
-            background-color: white;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            max-width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(145deg, #f0f0f0, #e6e6e6);
+            border-radius: 15px;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
         
-        img {
+        .custom-image {
             width: 100%;
             max-width: 1100px;
             min-width: 900px;
             height: auto;
-            border-radius: 8px;
-            display: block;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        img:hover {
-            transform: scale(1.02);
+            border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
         }
         
-        .info {
-            margin-top: 25px;
-            text-align: center;
-            color: #5a4b4b;
-            font-size: 1.1rem;
-            max-width: 800px;
-            line-height: 1.6;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
+        .custom-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
         }
         
-        .loading {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 60px;
+        .controls-container {
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
-        .spinner {
-            border: 5px solid rgba(0, 0, 0, 0.1);
-            border-top: 5px solid #ff9a9e;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 25px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .controls {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .btn {
-            padding: 12px 25px;
-            background: linear-gradient(90deg, #ff9a9e 0%, #fad0c4 100%);
-            color: #5a4b4b;
+        .btn-custom {
+            background: linear-gradient(90deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
             border: none;
             border-radius: 50px;
-            cursor: pointer;
-            font-size: 1rem;
+            padding: 0.7rem 1.5rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
         }
         
-        .btn:hover {
+        .btn-custom:hover {
             transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+            color: white;
         }
         
-        .btn:active {
-            transform: translateY(0);
+        .btn-outline-custom {
+            color: #6c5ce7;
+            border: 2px solid #6c5ce7;
+            border-radius: 50px;
+            padding: 0.7rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            color: rgba(90, 75, 75, 0.8);
-            font-size: 1rem;
-            max-width: 800px;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
+        .btn-outline-custom:hover {
+            background: linear-gradient(90deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+        }
+        
+        .info-text {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .footer {
+            background: linear-gradient(90deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+            border-radius: 20px 20px 0 0;
+            padding: 1.5rem;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
         }
         
         @media (max-width: 1200px) {
-            .container {
-                border-radius: 15px;
-            }
-            
-            .image-wrapper {
-                overflow-x: auto;
-                padding: 10px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
             .image-container {
-                padding: 15px;
+                overflow-x: auto;
             }
         }
         
-        @media (max-width: 968px) {
-            header {
-                padding: 20px 15px;
-            }
-            
-            h1 {
+        @media (max-width: 768px) {
+            .header-title {
                 font-size: 1.8rem;
             }
             
-            .subtitle {
-                font-size: 1rem;
+            .controls-container .btn {
+                margin-bottom: 0.5rem;
+                width: 100%;
             }
             
-            .image-container {
-                padding: 10px;
-            }
-            
-            .info {
-                font-size: 1rem;
-            }
-            
-            .controls {
+            .btn-group-custom {
                 flex-direction: column;
-                align-items: center;
             }
-            
-            .btn {
-                width: 200px;
-            }
+        }
+        
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+        
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+            color: #6c5ce7;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Câu 2: Hiển thị ảnh</h1>
-            <p class="subtitle">Ảnh được hiển thị với kích thước từ 900px đến 1200px</p>
-        </header>
-        
-        <div class="image-container">
-            <div class="image-wrapper">
-                <img src="https://i.ibb.co/pjb6PNRd/image.jpg" 
-                     alt="Hình ảnh từ ImgBB" 
-                     onload="hideLoading()">
-                <div id="loading" class="loading">
-                    <div class="spinner"></div>
-                    <p>Đang tải ảnh. Vui lòng chờ...</p>
+    <!-- Header -->
+    <header class="header-container py-4 mb-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="header-title fw-bold"><i class="fas fa-image me-3"></i>Câu 2: Hiển thị ảnh</h1>
+                    <p class="lead mb-0">Ảnh được hiển thị với kích thước từ 900px đến 1200px</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <span class="badge bg-light text-purple px-3 py-2 fs-6">
+                        <i class="fas fa-expand-arrows-alt me-2"></i>Responsive
+                    </span>
                 </div>
             </div>
-            
-            <div class="info">
-                <p>Ảnh được hiển thị với kích thước trong khoảng 900px - 1200px. Nếu màn hình của bạn nhỏ hơn, hãy sử dụng thanh cuộn ngang để xem toàn bộ ảnh.</p>
-            </div>
-            
-            <div class="controls">
-                <button class="btn" onclick="zoomIn()">Phóng to</button>
-                <button class="btn" onclick="zoomOut()">Thu nhỏ</button>
-                <button class="btn" onclick="resetZoom()">Kích thước gốc</button>
-                <button class="btn" onclick="changeBackground()">Đổi màu nền</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container main-container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <!-- Image Container -->
+                <div class="image-container">
+                    <img src="https://i.ibb.co/pjb6PNRd/image.jpg" 
+                         alt="Hình ảnh từ ImgBB" 
+                         class="custom-image"
+                         onload="hideLoading()">
+                    <div id="loading" class="loading-spinner">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Đang tải...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Info Text -->
+                <div class="info-text text-center">
+                    <p class="mb-0">
+                        <i class="fas fa-info-circle me-2 text-primary"></i>
+                        Ảnh được hiển thị với kích thước trong khoảng 900px - 1200px. 
+                        Trên màn hình nhỏ, bạn có thể cuộn ngang để xem toàn bộ ảnh.
+                    </p>
+                </div>
+                
+                <!-- Controls -->
+                <div class="controls-container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="mb-3"><i class="fas fa-sliders-h me-2"></i>Điều chỉnh ảnh</h4>
+                            <div class="d-flex flex-wrap btn-group-custom">
+                                <button class="btn btn-custom me-2 mb-2" onclick="zoomIn()">
+                                    <i class="fas fa-search-plus me-2"></i>Phóng to
+                                </button>
+                                <button class="btn btn-custom me-2 mb-2" onclick="zoomOut()">
+                                    <i class="fas fa-search-minus me-2"></i>Thu nhỏ
+                                </button>
+                                <button class="btn btn-outline-custom mb-2" onclick="resetZoom()">
+                                    <i class="fas fa-sync me-2"></i>Mặc định
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <h4 class="mb-3"><i class="fas fa-palette me-2"></i>Tùy chỉnh giao diện</h4>
+                            <div class="d-flex flex-wrap">
+                                <button class="btn btn-custom me-2 mb-2" onclick="changeBackground()">
+                                    <i class="fas fa-fill-drip me-2"></i>Đổi màu nền
+                                </button>
+                                <button class="btn btn-outline-custom mb-2" onclick="resetBackground()">
+                                    <i class="fas fa-undo me-2"></i>Nền mặc định
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    
-    <footer>
-        <p>Trang web hiển thị ảnh &copy; 2023 - Ảnh được lưu trữ trên ImgBB</p>
+
+    <!-- Footer -->
+    <footer class="footer text-center mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="mb-0">
+                        Trang web hiển thị ảnh &copy; 2023 - Sử dụng Bootstrap 5
+                        <span class="d-block d-sm-inline">
+                            <i class="fas fa-circle mx-2" style="font-size: 6px; vertical-align: middle;"></i>
+                            Ảnh được lưu trữ trên ImgBB
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Custom Script -->
     <script>
         let currentScale = 1;
-        const image = document.querySelector('img');
+        const image = document.querySelector('.custom-image');
         const body = document.querySelector('body');
         const backgrounds = [
-            'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)',
-            'linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)',
+            'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
             'linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)',
+            'linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)',
             'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
             'linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)'
         ];
         let currentBg = 0;
         
+        // Ẩn spinner khi ảnh tải xong
         function hideLoading() {
             document.getElementById('loading').style.display = 'none';
         }
         
+        // Phóng to ảnh
         function zoomIn() {
             if (currentScale < 1.5) {
                 currentScale += 0.1;
@@ -275,6 +274,7 @@
             }
         }
         
+        // Thu nhỏ ảnh
         function zoomOut() {
             if (currentScale > 0.5) {
                 currentScale -= 0.1;
@@ -282,14 +282,22 @@
             }
         }
         
+        // Reset zoom về mặc định
         function resetZoom() {
             currentScale = 1;
             image.style.transform = 'scale(1)';
         }
         
+        // Thay đổi màu nền
         function changeBackground() {
             currentBg = (currentBg + 1) % backgrounds.length;
             body.style.background = backgrounds[currentBg];
+        }
+        
+        // Reset màu nền về mặc định
+        function resetBackground() {
+            currentBg = 0;
+            body.style.background = backgrounds[0];
         }
         
         // Ẩn loading nếu ảnh tải xong, nếu quá 5 giây thì vẫn ẩn loading
