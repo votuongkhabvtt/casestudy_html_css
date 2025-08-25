@@ -1,1 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CÂU 1: Trang Web Hiển Thị Ảnh >1200px</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .image-container {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f9f9f9;
+        }
+        
+        .image-wrapper {
+            border: 1px solid #e1e1e1;
+            border-radius: 12px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            max-width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        img {
+            min-width: 1200px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        img:hover {
+            transform: scale(1.01);
+        }
+        
+        .info {
+            margin-top: 25px;
+            text-align: center;
+            color: #555;
+            font-size: 1.1rem;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+        }
+        
+        .spinner {
+            border: 5px solid rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #4776E6;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 25px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            background: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            max-width: 800px;
+        }
+        
+        @media (max-width: 1300px) {
+            .container {
+                border-radius: 10px;
+            }
+            
+            .image-wrapper {
+                overflow-x: auto;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .image-container {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 1.7rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .image-container {
+                padding: 15px;
+            }
+            
+            .info {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CÂU 1_TRANG WEB HIỂN THỊ ẢNH</h1>
+            <p class="subtitle">Ảnh được hiển thị với kích thước lớn hơn 1200px</p>
+        </header>
+        
+        <div class="image-container">
+            <div class="image-wrapper">
+                <img src="https://i.ibb.co/Zzmj72gw/image.jpg" 
+                     alt="Hình ảnh từ ImgBB" 
+                     onload="hideLoading()">
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Đang tải ảnh. Vui lòng chờ...</p>
+                </div>
+            </div>
+            
+            <div class="info">
+                <p>Ảnh được hiển thị với kích thước tối thiểu 1200px. Nếu màn hình của bạn nhỏ hơn, hãy sử dụng thanh cuộn ngang để xem toàn bộ ảnh.</p>
+            </div>
+            
+            <div class="controls">
+                <button class="btn" onclick="zoomIn()">Phóng to</button>
+                <button class="btn" onclick="zoomOut()">Thu nhỏ</button>
+                <button class="btn" onclick="resetZoom()">Mặc định</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Trang web hiển thị ảnh &copy; 2023 - Ảnh được lưu trữ trên ImgBB</p>
+    </footer>
 
+    <script>
+        let currentScale = 1;
+        const image = document.querySelector('img');
+        
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+        
+        function zoomIn() {
+            currentScale += 0.1;
+            image.style.transform = `scale(${currentScale})`;
+        }
+        
+        function zoomOut() {
+            if (currentScale > 0.2) {
+                currentScale -= 0.1;
+                image.style.transform = `scale(${currentScale})`;
+            }
+        }
+        
+        function resetZoom() {
+            currentScale = 1;
+            image.style.transform = 'scale(1)';
+        }
+        
+        // Ẩn loading nếu ảnh tải xong, nếu quá 5 giây thì vẫn ẩn loading
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+            }, 5000);
+        };
+    </script>
+</body>
+</html>
