@@ -4,385 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Câu 1: Hiển thị ảnh</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #4e54c8;
-            --secondary-color: #8f94fb;
-            --accent-color: #ff7e5f;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-        }
-        
+        /* Nền tổng thể hài hòa với ảnh */
         body {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--dark-color);
+            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 20px;
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
-        
-        .header-container {
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--primary-color);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .main-container {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-        }
-        
+
+        /* Khung chứa ảnh */
         .image-container {
-            padding: 1.5rem;
-            background: linear-gradient(145deg, #f0f0f0, #e6e6e6);
+            background-color: rgba(255, 255, 255, 0.85); /* nền nhẹ để nổi bật ảnh */
+            padding: 20px;
             border-radius: 15px;
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            max-width: 95%;
+            text-align: center;
         }
-        
-        .custom-image {
+
+        /* Ảnh responsive, >1200px trên màn hình lớn */
+        .image-container img {
             width: 100%;
-            max-width: 1100px;
-            min-width: 900px;
+            max-width: 1200px;
             height: auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.4s ease;
-        }
-        
-        .custom-image:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-        }
-        
-        .controls-container {
-            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .btn-primary-custom {
-            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 0.8rem 1.8rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(78, 84, 200, 0.4);
-        }
-        
-        .btn-primary-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(78, 84, 200, 0.5);
-            color: white;
-        }
-        
-        .btn-outline-custom {
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            border-radius: 50px;
-            padding: 0.8rem 1.8rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-outline-custom:hover {
-            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-        }
-        
-        .info-text {
-            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .footer {
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--primary-color);
-            border-radius: 20px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .theme-selector {
-            background: white;
             border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
-        
-        .theme-option {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: inline-block;
-            margin: 0 10px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
+        /* Tiêu đề */
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 20px;
         }
-        
-        .theme-option:hover {
-            transform: scale(1.2);
-        }
-        
-        @media (max-width: 1200px) {
-            .image-container {
-                overflow-x: auto;
-            }
-        }
-        
+
+        /* Responsive nhỏ */
         @media (max-width: 768px) {
-            .header-title {
-                font-size: 1.8rem;
+            body {
+                padding: 20px;
             }
-            
-            .controls-container .btn {
-                margin-bottom: 0.8rem;
-                width: 100%;
-            }
-            
-            .btn-group-custom {
-                flex-direction: column;
-            }
-            
-            .main-container {
-                padding: 1.5rem;
-            }
-        }
-        
-        .loading-spinner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 400px;
-        }
-        
-        .spinner-border {
-            width: 3rem;
-            height: 3rem;
-            color: var(--primary-color);
-        }
-        
-        .image-info {
-            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            padding: 1rem;
-            margin-top: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header-container">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <h1 class="header-title fw-bold"><i class="fas fa-image me-3"></i>Câu 1: Hiển thị ảnh</h1>
-                    <p class="lead mb-0">Ảnh được hiển thị với kích thước từ 900px đến 1200px</p>
-                </div>
-                <div class="col-md-4 text-md-end">
-                    <span class="badge bg-primary px-3 py-2 fs-6">
-                        <i class="fas fa-expand-arrows-alt me-2"></i>Responsive Design
-                    </span>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <!-- Main Content -->
-    <div class="container main-container">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <!-- Image Container -->
-                <div class="image-container">
-                    <img src="https://i.ibb.co/Zzmj72gw/image.jpg" 
-                         alt="Hình ảnh từ ImgBB" 
-                         class="custom-image"
-                         onload="hideLoading()">
-                    <div id="loading" class="loading-spinner">
-                        <div class="spinner-border" role="status">
-                            <span class="visually-hidden">Đang tải...</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Image Info -->
-                <div class="image-info text-center">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <p class="mb-0"><i class="fas fa-ruler-horizontal me-2 text-primary"></i>Chiều rộng: 900px - 1200px</p>
-                        </div>
-                        <div class="col-md-4">
-                            <p class="mb-0"><i class="fas fa-palette me-2 text-primary"></i>Màu nền hài hòa</p>
-                        </div>
-                        <div class="col-md-4">
-                            <p class="mb-0"><i class="fas fa-mobile-alt me-2 text-primary"></i>Responsive</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Info Text -->
-                <div class="info-text text-center">
-                    <p class="mb-0">
-                        <i class="fas fa-info-circle me-2 text-primary"></i>
-                        Ảnh được hiển thị với kích thước trong khoảng 900px - 1200px. 
-                        Trên màn hình nhỏ, bạn có thể cuộn ngang để xem toàn bộ ảnh.
-                    </p>
-                </div>
-                
-                <!-- Controls -->
-                <div class="controls-container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h4 class="mb-3"><i class="fas fa-sliders-h me-2"></i>Điều chỉnh ảnh</h4>
-                            <div class="d-flex flex-wrap btn-group-custom">
-                                <button class="btn btn-primary-custom me-2 mb-2" onclick="zoomIn()">
-                                    <i class="fas fa-search-plus me-2"></i>Phóng to
-                                </button>
-                                <button class="btn btn-primary-custom me-2 mb-2" onclick="zoomOut()">
-                                    <i class="fas fa-search-minus me-2"></i>Thu nhỏ
-                                </button>
-                                <button class="btn btn-outline-custom mb-2" onclick="resetZoom()">
-                                    <i class="fas fa-sync me-2"></i>Mặc định
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mt-3 mt-lg-0">
-                            <h4 class="mb-3"><i class="fas fa-palette me-2"></i>Tùy chỉnh giao diện</h4>
-                            <div class="d-flex flex-wrap">
-                                <button class="btn btn-primary-custom me-2 mb-2" onclick="changeBackground()">
-                                    <i class="fas fa-fill-drip me-2"></i>Đổi màu nền
-                                </button>
-                                <button class="btn btn-outline-custom mb-2" onclick="resetBackground()">
-                                    <i class="fas fa-undo me-2"></i>Nền mặc định
-                                </button>
-                            </div>
-                            
-                            <div class="theme-selector mt-3">
-                                <h5 class="mb-3">Chọn màu chủ đề:</h5>
-                                <div class="theme-option" style="background: #4e54c8;" onclick="changeTheme('#4e54c8', '#8f94fb')"></div>
-                                <div class="theme-option" style="background: #ff7e5f;" onclick="changeTheme('#ff7e5f', '#feb47b')"></div>
-                                <div class="theme-option" style="background: #00cdac;" onclick="changeTheme('#00cdac', '#02aab0')"></div>
-                                <div class="theme-option" style="background: #6a11cb;" onclick="changeTheme('#6a11cb', '#2575fc')"></div>
-                                <div class="theme-option" style="background: #ff6b6b;" onclick="changeTheme('#ff6b6b', '#ff9e6b')"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="image-container">
+        <h1>Câu 1: Hiển thị ảnh</h1>
+        <img src="https://i.ibb.co/Zzmj72gw/image.jpg" alt="Ảnh Câu 1">
     </div>
 
-    <!-- Footer -->
-    <footer class="footer text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <p class="mb-0">
-                        Trang web hiển thị ảnh &copy; 2023 - Sử dụng Bootstrap 5
-                        <span class="d-block d-sm-inline">
-                            <i class="fas fa-circle mx-2" style="font-size: 6px; vertical-align: middle;"></i>
-                            Ảnh được lưu trữ trên ImgBB
-                        </span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS and Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-    
-    <!-- Custom Script -->
-    <script>
-        let currentScale = 1;
-        const image = document.querySelector('.custom-image');
-        const body = document.querySelector('body');
-        const backgrounds = [
-            'linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%)',
-            'linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%)',
-            'linear-gradient(135deg, #00cdac 0%, #02aab0 100%)',
-            'linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)',
-            'linear-gradient(135deg, #ff6b6b 0%, #ff9e6b 100%)'
-        ];
-        let currentBg = 0;
-        
-        // Ẩn spinner khi ảnh tải xong
-        function hideLoading() {
-            document.getElementById('loading').style.display = 'none';
-        }
-        
-        // Phóng to ảnh
-        function zoomIn() {
-            if (currentScale < 1.5) {
-                currentScale += 0.1;
-                image.style.transform = `scale(${currentScale})`;
-            }
-        }
-        
-        // Thu nhỏ ảnh
-        function zoomOut() {
-            if (currentScale > 0.5) {
-                currentScale -= 0.1;
-                image.style.transform = `scale(${currentScale})`;
-            }
-        }
-        
-        // Reset zoom về mặc định
-        function resetZoom() {
-            currentScale = 1;
-            image.style.transform = 'scale(1)';
-        }
-        
-        // Thay đổi màu nền
-        function changeBackground() {
-            currentBg = (currentBg + 1) % backgrounds.length;
-            body.style.background = backgrounds[currentBg];
-        }
-        
-        // Reset màu nền về mặc định
-        function resetBackground() {
-            currentBg = 0;
-            body.style.background = backgrounds[0];
-        }
-        
-        // Thay đổi theme
-        function changeTheme(primary, secondary) {
-            document.documentElement.style.setProperty('--primary-color', primary);
-            document.documentElement.style.setProperty('--secondary-color', secondary);
-            body.style.background = `linear-gradient(135deg, ${primary} 0%, ${secondary} 100%)`;
-        }
-        
-        // Ẩn loading nếu ảnh tải xong, nếu quá 5 giây thì vẫn ẩn loading
-        window.onload = function() {
-            setTimeout(function() {
-                document.getElementById('loading').style.display = 'none';
-            }, 5000);
-        };
-    </script>
+    <!-- Bootstrap JS (tùy chọn, nếu muốn dùng JS components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
