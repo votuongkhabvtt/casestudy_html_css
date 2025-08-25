@@ -1,1 +1,504 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - Modern Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 1200px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        
+        .banner {
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        
+        .banner h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .banner p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-nav li {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .main-nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 18px 0;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .main-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .main-nav a.active {
+            background-color: #e74c3c;
+        }
+        
+        .main-nav i {
+            margin-right: 8px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            flex: 0 0 250px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .sidebar h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
+        
+        .sidebar li {
+            margin-bottom: 12px;
+        }
+        
+        .sidebar a {
+            color: #555;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar a:hover {
+            background-color: #f0f7ff;
+            color: #3498db;
+        }
+        
+        .sidebar i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Product List */
+        .product-list {
+            flex: 1;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e74c3c;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .product {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            color: #e74c3c;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .product-description {
+            color: #777;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .btn-add-to-cart {
+            display: block;
+            width: 100%;
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-add-to-cart:hover {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ecf0f1;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: #e74c3c;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Special offers */
+        .special-offers {
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-top">
+                <div class="logo">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDUxMiA1MTIiPjxwYXRoIGZpbGw9IiMzNDk4ZGIiIGQ9Ik0yNTYgNTEyYy0xNDEuNCAwLTI1Ni0xMTQuNi0yNTYtMjU2UzExNC42IDAgMjU2IDBzMjU2IDExNC42IDI1NiAyNTYtMTE0LjYgMjU2LTI1NiAyNTZ6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTM2NS4yIDIyMC4yaC0yMTAuNGMtMTEuNCAwLTIwLjYtOS4yLTIwLjYtMjAuNnM5LjItMjAuNiAyMC42LTIwLjZoMjEwLjRjMTEuNCAwIDIwLjYgOS4yIDIwLjYgMjAuNnMtOS4yIDIwLjYtMjAuNiAyMC42ek0zNjUuMiAzMTIuN0gyNTVjLTExLjQgMC0yMC42LTkuMi0yMC42LTIwLjZzOS4yLTIwLjYgMjAuNi0yMC42aDExMC4yYzExLjQgMCAyMC42IDkuMiAyMC42IDIwLjZzLTkuMiAyMC42LTIwLjYgMjAuNnoiLz48L3N2Zz4=" alt="Logo">
+                    <h1>ModernStore</h1>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search products...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            
+            <div class="banner">
+                <h2>Welcome to ModernStore</h2>
+                <p>Discover the latest products with amazing discounts and fast shipping!</p>
+            </div>
+        </header>
+        
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-box-open"></i> Products</a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i> Order</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> About Us</a></li>
+                <li><a href="#"><i class="fas fa-phone"></i> Contact</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Special Offers -->
+        <div class="special-offers">
+            <p>Special Offer: Get 20% off on all electronics this week! Use code: ELECTRO20</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-mobile-alt"></i> Smartphones</a></li>
+                    <li><a href="#"><i class="fas fa-laptop"></i> Laptops</a></li>
+                    <li><a href="#"><i class="fas fa-tshirt"></i> Clothing</a></li>
+                    <li><a href="#"><i class="fas fa-couch"></i> Furniture</a></li>
+                    <li><a href="#"><i class="fas fa-utensils"></i> Kitchenware</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> Books</a></li>
+                    <li><a href="#"><i class="fas fa-running"></i> Sports</a></li>
+                    <li><a href="#"><i class="fas fa-gamepad"></i> Gaming</a></li>
+                </ul>
+                
+                <h3>Filter By</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-dollar-sign"></i> Price: Low to High</a></li>
+                    <li><a href="#"><i class="fas fa-dollar-sign"></i> Price: High to Low</a></li>
+                    <li><a href="#"><i class="fas fa-star"></i> Top Rated</a></li>
+                    <li><a href="#"><i class="fas fa-fire"></i> Most Popular</a></li>
+                </ul>
+            </aside>
+            
+            <!-- Product List -->
+            <section class="product-list">
+                <h2 class="section-title">Featured Products</h2>
+                
+                <div class="products">
+                    <!-- Product 1 -->
+                    <div class="product">
+                        <div class="product-img">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmMmYyZjIiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjMzQ5OGRiIi8+PHBhdGggZD0iTTEyMCAxMjBINzB2LTQwaDUwem02MCAwaC01MHYtNDBoNTB6bTYwIDBoLTUwdi00MGg1MHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=" alt="Smartphone">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Premium Smartphone X5</h3>
+                            <div class="product-price">$599.99</div>
+                            <p class="product-description">Latest smartphone with high-resolution camera and long battery life.</p>
+                            <button class="btn-add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product">
+                        <div class="product-img">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmMmYyZjIiLz48cmVjdCB4PSI3MCIgeT0iNTAiIHdpZHRoPSIxNjAiIGhlaWdodD0iMTAwIiByeD0iNSIgcnk9IjUiIGZpbGw9IiMzNDk4ZGIiLz48cmVjdCB4PSI4MCIgeT0iNDAiIHdpZHRoPSIxNDAiIGhlaWdodD0iMTIwIiByeD0iNSIgcnk9IjUiIGZpbGw9IiMyYzNlNTAiLz48L3N2Zz4=" alt="Laptop">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Ultra Slim Laptop Pro</h3>
+                            <div class="product-price">$1299.99</div>
+                            <p class="product-description">Powerful laptop with fast processor and stunning display.</p>
+                            <button class="btn-add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product">
+                        <div class="product-img">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmMmYyZjIiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZTM0MzFmIi8+PHJlY3QgeD0iMTM1IiB5PSI4MCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjZmZmIi8+PC9zdmc+" alt="Smart Watch">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Smart Watch Series 6</h3>
+                            <div class="product-price">$349.99</div>
+                            <p class="product-description">Track your fitness goals and receive notifications on your wrist.</p>
+                            <button class="btn-add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product">
+                        <div class="product-img">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmMmYyZjIiLz48cGF0aCBkPSJNMTIwIDYwdjEwMGg2MFY2MHoiIGZpbGw9IiMzNDk4ZGIiLz48cmVjdCB4PSIxMjAiIHk9IjYwIiB3aWR0aD0iNjAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMmMzZTUwIi8+PC9zdmc+" alt="Bluetooth Speaker">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Wireless Bluetooth Speaker</h3>
+                            <div class="product-price">$89.99</div>
+                            <p class="product-description">Portable speaker with exceptional sound quality and bass.</p>
+                            <button class="btn-add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5 -->
+                    <div class="product">
+                        <div class="product-img">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmMmYyZjIiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjZTM0MzFmIi8+PHBhdGggZD0iTTE0MCA4MHY0MGgyMFY4MHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=" alt="Headphones">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Noise Cancelling Headphones</h3>
+                            <div class="product-price">$199.99</div>
+                            <p class="product-description">Immerse yourself in music with these premium headphones.</p>
+                            <button class="btn-add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 6 -->
+                    <div class="product">
+                        <div class="product-img">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmMmYyZjIiLz48cmVjdCB4PSI4MCIgeT0iNTAiIHdpZHRoPSIxNDAiIGhlaWdodD0iMTAwIiByeD0iNSIgcnk9IjUiIGZpbGw9IiMzNDk4ZGIiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjMwIiBmaWxsPSIjMmMzZTUwIi8+PC9zdmc+" alt="Tablet">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">10" Tablet Computer</h3>
+                            <div class="product-price">$499.99</div>
+                            <p class="product-description">Perfect for work and entertainment on the go.</p>
+                            <button class="btn-add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>ModernStore is a leading online retailer offering a wide range of products at competitive prices.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#">Home</a>
+                    <a href="#">Products</a>
+                    <a href="#">Order</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Commerce St, New York, NY</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@modernstore.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 ModernStore. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
